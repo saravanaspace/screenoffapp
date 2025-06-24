@@ -148,6 +148,23 @@ If you encounter any issues or have questions:
 - Open an issue on GitHub
 - Check the existing issues for solutions
 
+## Recent Changes
+
+- Switched the launcher icon to a custom PNG image, as provided by the user.
+- Cleaned up unused adaptive icon XML/vector files and related foreground/background assets.
+- Removed all unused icon files, keeping only the PNGs generated for each density.
+- **Launcher icon generated using [Android Asset Studio - Launcher Icon Generator](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html)** for best compatibility and appearance on all Android devices.
+
+## How to Update the Icon
+
+1. Use the [Launcher Icon Generator](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html) to create all required PNG sizes from your image.
+2. Replace the PNGs in `app/src/main/res/mipmap-*dpi/` with the generated files.
+3. Ensure your `AndroidManifest.xml` references `@mipmap/ic_launcher` as the app icon.
+
+## Credits
+- Launcher icon generated with [Android Asset Studio - Launcher Icon Generator](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html)
+- User-provided image for the icon design
+
 ---
 
 **Made with ❤️ and Cursor** 
