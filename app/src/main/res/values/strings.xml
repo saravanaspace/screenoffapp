@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Screen Off</string>
+    <string name="accessibility_service_description">Allows the app to lock the screen</string>
 </resources>

@@ -165,6 +165,31 @@ If you encounter any issues or have questions:
 - Launcher icon generated with [Android Asset Studio - Launcher Icon Generator](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html)
 - User-provided image for the icon design
 
+## Android Security Restrictions & Limitations
+
+**Important:** Due to Android security policies, there are significant restrictions on what third-party apps can do regarding screen-off and device locking, especially on modern devices (Pixel, Samsung, etc.) and recent Android versions (Android 12+ and especially Android 14/15/16):
+
+- **Device Admin lock**: Will always require PIN/pattern/password after lock (biometrics are disabled for the next unlock). This is enforced by Android for security and cannot be bypassed.
+- **Accessibility Service lock**: Increasingly blocked by the system and Play Protect for non-accessibility use cases. On Android 14+ and especially Android 16 (U), you may see "Access Denied" or the service may not stay enabled.
+- **Play Protect**: May block or warn about apps using Accessibility or Device Admin for screen-off, especially if sideloaded or not from the Play Store.
+- **Root required for true power button simulation**: Only possible on rooted devices (not recommended for most users).
+- **Overlay/Fake Off**: Apps can overlay a black screen, but this does not actually turn off or lock the device and is not secure.
+- **Physical Power Button**: The only 100% reliable and secure way to turn off the screen and allow biometric unlock on all Android versions.
+
+### Summary Table
+
+| Method                | Works on Modern Android? | Allows Biometrics? | Play Store Allowed? | Notes                        |
+|-----------------------|:-----------------------:|:------------------:|:-------------------:|------------------------------|
+| Power Button          | Yes                     | Yes                | Yes                 | Physical only                |
+| Device Admin          | Yes                     | No                 | Yes                 | PIN required after lock      |
+| Accessibility Service | No (blocked)            | Yes                | No                  | Blocked by system/Play Protect|
+| Root                  | Yes (if rooted)         | Yes                | No                  | Not for most users           |
+| Overlay/Fake Off      | Yes                     | N/A                | Yes                 | Not secure, not a real lock  |
+
+**If you see Play Protect warnings, "Access Denied" in Accessibility, or are forced to enter your PIN after locking, these are system-enforced and cannot be bypassed by any app.**
+
+For more details, see the [Android developer documentation](https://developer.android.com/guide/topics/admin/device-admin) and [Play Store policies](https://support.google.com/googleplay/android-developer/answer/9047303).
+
 ---
 
 **Made with ❤️ and Cursor** 
